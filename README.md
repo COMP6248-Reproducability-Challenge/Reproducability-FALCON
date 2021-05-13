@@ -43,16 +43,5 @@ FALCON
   └── script: shell scripts for execution of training/testing codes
 ```
 
-#### DEMO
-* There are two demo scripts: `script/train.sh` and `script/inference.sh`.
-* You can change arguments in `.sh` files to train/test different model.
-    * `train.sh`: Execute training process of the model
-        * Accuracy/ loss/ training time for 100 iteration will be printed on the screen during training.
-        * Accuracy/ inference time/ number of parameters/ number of FLOPs will be printed on the screen after training.
-    * `inference.sh`: Execute inference process of the model
-        * Accuracy/ inference time/ number of parameters/ number of FLOPs will be printed on the screen.
-        * You can run this file only when the trained model exist.
-        * Sample trained model is provided in `src/train_test/trained_model/`.
-
 ## License
 Licensed under the Apache License, Version 2.0
