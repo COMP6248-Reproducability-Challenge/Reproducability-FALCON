@@ -4,7 +4,7 @@ Reproducability-REFORMER
 
 Origin paper:
 
-REFORMER: THE EFFICIENT TRANSFORMER
+FALCON: Fast and Lightweight Convolution for Compressing and Accelerating CNN
 
 https://openreview.net/forum?id=BylXi3NKvS
 
