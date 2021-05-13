@@ -1,7 +1,14 @@
-FALCON: Fast and Lightweight Convolution for Compressing and Accelerating CNN
+Reproducability-REFORMER
 ===
+---
 
-This package provides implementations of FALCON/FALCONBranch convolution with their corresponding CNN model.
+Origin paper:
+
+REFORMER: THE EFFICIENT TRANSFORMER
+
+https://openreview.net/forum?id=BylXi3NKvS
+
+
 
 ## Overview
 #### Code structure
@@ -35,65 +42,6 @@ FALCON
   │
   └── script: shell scripts for execution of training/testing codes
 ```
-
-#### Naming convention
-**StandardConv**: Standard Convolution (baseline)
-
-**FALCON**: FAst and Lightweight CONvolution - the new convolution architecture we proposed
-
-**Rank**: Rank of convolution. Copy the conv layer for k times, run independently and add output together at the end of the layer. This hyperparameter helps balace compression rate/ accelerate rate and accuracy.
-
-**FALCONBranch**: New version of FALCON - for fitting FALCON into ShuffleUnitV2 architecture.
-
-#### Data description
-* CIFAR-10 datasets
-* CIFAR-100 datasets
-* SVHN
-* ImageNet
-* Note that: 
-    * CIFAR and SVHN datasets depend on torchvision (https://pytorch.org/docs/stable/torchvision/datasets.html#cifar). You don't have to download anything. When executing the source code, the datasets will be automaticly downloaded if it is not detected.
-    * ImageNet is downloaded from http://www.image-net.org/challenges/LSVRC/
-   
-#### Output
-* For CIFAR datasets, the trained model will be saved in `train_test/trained_model/` after training.
-* For ImageNet, the checkpoint will be saved in `train_test/checkpoint`
-* You can test the model only if there is a trained model in `train_test/trained_model/`.
-
-## Install
-#### Environment 
-* Unbuntu
-* CUDA 9.0
-* Python 3.6
-* torch
-* torchvision
-#### Dependence Install
-    pip install torch torchvision
-
-## How to use 
-#### Clone the repository
-    git clone https://
-    cd FALCON
-#### Training & Testing
-* To train the model on CIFAR-10/CIFAR-100/SVHN datasets, run script:
-    ```    
-    cd src/train_test
-    python main.py -train -conv StandardConv -m VGG19 -data cifar10
-    python main.py -train -conv FALCON -m VGG19 -data cifar10 -init
-    ```
-    The trained model will be saved in `src/train_test/trained_model/`
-* To test the model, run script:
-    ```
-    cd src/train_test
-    python main.py -conv StandardConv -m VGG19 -data cifar10
-    python main.py -conv FALCON -m VGG19 -data cifar10 -init
-    ```
-    The testing accuracy, inference time, number of parameters and number of FLOPs will be printed on the screen.
-* Pre-trained model is saved in `src/train_test/trained_model/`
-    * For example:
-        * Standard model:
-            conv=StandardConv,model=VGG19,data=cifar100,rank=1,alpha=1.pkl
-        * FALCON model:
-            conv=FALCON,model=VGG19,data=cifar100,rank=1,alpha=1,init.pkl
 
 #### DEMO
 * There are two demo scripts: `script/train.sh` and `script/inference.sh`.
