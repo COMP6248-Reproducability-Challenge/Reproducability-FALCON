@@ -1,0 +1,21 @@
+# Upload all the codes to colab,then run
+
+!python /content/drive/MyDrive/falcon-submission-master/FALCON/src/main.py -train -conv StandardConv -m VGG19 -data cifar100
+!python /content/drive/MyDrive/falcon-submission-master/FALCON/src/main.py -train -conv FALCON -m VGG19 -data cifar100
+!python /content/drive/MyDrive/falcon-submission-master/FALCON/src/main.py -train -conv StandardConv -m ResNet -data cifar100
+!python /content/drive/MyDrive/falcon-submission-master/FALCON/src/main.py -train -conv FALCON -m ResNet -data cifar100
+!python /content/drive/MyDrive/falcon-submission-master/FALCON/src/main.py -train -conv FALCONBranch -m VGG19 -data cifar100
+!python /content/drive/MyDrive/falcon-submission-master/FALCON/src/main.py -train -conv FALCONBranch -m ResNet -data cifar100
+
+#change the rank value:
+if __name__ == "__main__":
+    parser = get_default_param()
+    args = parser.parse_args()
+    args.rank = 2
+    # print configuration
+    print(args)
+    
+#run:
+!python /content/drive/MyDrive/falcon-submission-master/FALCON/src/main.py -train -conv FALCON -m VGG19 -data cifar100
+!python /content/drive/MyDrive/falcon-submission-master/FALCON/src/main.py -train -conv FALCON -m Resnet -data cifar100
+
